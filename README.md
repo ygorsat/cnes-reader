@@ -1,7 +1,8 @@
 # cnes-reader
 Leitor de CNES a partir de URL configurável com H2 Memory Database
 
-- Backend
+## Backend
+```
 -- Desenvolvido com Spring Framework (Maven, Spring Boot, JPA, Validation API, Sprint Data - Criteria API + CRUD Repository, Http Client, Model Mapper)
 --- Executar "Run As" ou "Debug As" a classe CnesReaderApplication.java
 --- A aplicação faz o download do arquivo .CSV com as informações do CNES a partir de URL configurável, as insere em um H2 Memory Database utilizando JPA (persistência em lote).
@@ -16,8 +17,9 @@ Leitor de CNES a partir de URL configurável com H2 Memory Database
 
 *O backend está totalmente documentado.
 *Aguardar finalização da persistência no Database para utilizar APIs (console da aplicação).
-
-- Frontend
+```
+## Frontend
+```
 -- Desenvolvido com Angular IO (Versão 7), Typescript, Bootstrap 4 e NPM
 -- Realizar "npm install" após finalização executar "ng serve" ou "npm start". A aplicação está disponível em http://localhost:4200
 
@@ -35,3 +37,4 @@ Leitor de CNES a partir de URL configurável com H2 Memory Database
 -- Visualizar
 --- Ao clicar no "olho para visualizar", o usuário é redirecionado para uma tela, onde terá a exibição completa de todos os dados do CNES. Botão de voltar redireciona para a tela anterior.
 ---- Os dados exibidos são: CNES, Nome Fantasia, Código do IBGE, Descrição do Tipo de Unidade, Tipo de Gestão, Endereço, Unidade Federativa, Municipio e Telefone de Contato. 
+```
