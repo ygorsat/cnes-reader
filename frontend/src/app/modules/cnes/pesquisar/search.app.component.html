@@ -1,0 +1,103 @@
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">
+    <img src="https://img.icons8.com/color/48/000000/angularjs.png" width="30" height="30" class="d-inline-block align-top" alt="Angular">
+        {{ title }}
+  </a>
+</nav>
+<div class="container" id="container">
+  <br><br>
+  <form [formGroup]="formGet">
+    <div class="row mb-md-3">
+      <div class="col-md-2 text-right">
+          <label for="cnes">CNES</label>
+      </div>
+      <div class="col-md-4">
+          <input type="text" class="form-control" formControlName="cnes" id="cnes" maxlength="7">
+      </div>
+      <div class="col-md-2 text-right">
+          <label for="cnes">Nome Fantasia</label>
+      </div>
+      <div class="col-md-4">
+          <input type="text" class="form-control" formControlName="nomeFantasia" id="nomeFantasia" maxlength="250">
+      </div>
+    </div>
+    <div class="row mb-md-3">
+      <div class="col-md-2 text-right">
+          <label for="situacaoInstitucional">Tipo de Gestão</label>
+      </div>
+      <div class="col-md-4">
+          <select class="form-control" formControlName="tipo" id="tipo">
+            <option value="null">Selecione...</option>
+            <option [value]="tipo"
+            *ngFor="let tipo of objectKeys(tipoEnum)">
+            {{tipo | enumPipe: tipoEnumMsg}}
+            </option>
+          </select>
+      </div>
+      <div class="col-md-2 text-right">
+          <label for="statusAprovacao">Unidade Federativa</label>
+      </div>
+      <div class="col-md-4">
+          <select class="form-control" formControlName="uf" id="uf">
+            <option value="null">Selecione...</option>
+            <option [value]="uf"
+            *ngFor="let uf of objectKeys(unidadeFederativaEnum)">
+            {{uf | enumPipe: unidadeFederativaEnumMsg}}
+            </option>
+          </select>
+      </div>
+    </div>
+    <div class="row mb-md-3">
+      <div class="col-md-2 text-right">
+          <label for="cnes">Descrição Tipo de Unidade</label>
+      </div>
+      <div class="col-md-4">
+          <input type="text" class="form-control" formControlName="tipoUnidade" id="tipoUnidade" maxlength="250">
+      </div>
+    </div>
+  </form>
+  <div class="form-group row ">
+    <div class="col-sm-10 offset-sm-2">
+      <button (click)="this.btnGet()" class="btn btn-primary float-right">PESQUISAR</button>
+      <button (click)="this.cleanData()" class="btn btn-secondary float-right">LIMPAR</button>
+    </div>
+  </div>
+  <div *ngIf="currentResultPage && currentResultPage.items" >
+      <p class="font-italic"><b>Total de Registros:</b> {{currentResultPage.totalNumber}}</p>
+    <table class="table table-striped">
+      <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Tipo de Gestão</th>
+            <th scope="col">CNES</th>
+            <th scope="col">Nome Fantasia</th>
+            <th scope="col">Município</th>
+            <th scope="col">Unidade Federativa</th>
+            <th scope="col">#</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr *ngFor="let item of currentResultPage.items">
+            <th scope="row">{{ item.id }}</th>
+            <td>{{ item.tipoGestao | enumPipe:tipoEnumMsg }}</td>
+            <td>
+                {{ item.codigoCnes }}
+            </td>
+            <td>{{item.nomeFantasia}}</td>
+            <td>{{item.municipio}}</td>
+            <td>{{item.uf | enumPipe:unidadeFederativaEnumMsg}}</td>
+            <td [routerLink]="['visualizar', item.id]"><i class="fa fa-eye" aria-hidden="true"></i></td>
+          </tr>
+      </tbody>
+    </table>
+
+    <div>
+      <ngb-pagination class="d-flex justify-content-center" [rotate]="true" [maxSize]= "10" [boundaryLinks]="true" [collectionSize]="currentResultPage.totalNumber" [(page)]="page" [pageSize]="itemsPerPage" (pageChange)="onPageChange()">
+
+      </ngb-pagination>
+    </div>
+  </div>
+</div>
+
+

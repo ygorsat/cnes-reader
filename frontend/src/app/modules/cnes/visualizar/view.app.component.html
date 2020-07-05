@@ -1,0 +1,86 @@
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">
+    <img src="https://img.icons8.com/color/48/000000/angularjs.png" width="30" height="30" class="d-inline-block align-top" alt="Angular">
+        {{ title }}
+  </a>
+</nav>
+<div class="container" id="container">
+  <br><br>
+  <form id="visualizar">
+      <legend>Dados do Estabelecimento</legend>
+      <br><br>
+      <div class="row mb-3">
+         <div class="col-md-2 text-right">
+            <label for="codigoCnes">CNES</label>
+         </div>
+         <div class="col-md-4">
+            <span id="codigoCnes">{{resultId?.codigoCnes}}</span>
+         </div>
+         <div class="col-md-2 text-right">
+            <label for="nomeFantasia">Nome Fantasia</label>
+         </div>
+         <div class="col-md-4">
+            <span id="nomeFantasia">{{resultId?.nomeFantasia}}</span>
+         </div>
+      </div>
+      <div class="row mb-3">
+         <div class="col-md-2 text-right">
+            <label for="codigoIbge">Código do IBGE</label>
+         </div>
+         <div class="col-md-4">
+            <span id="codigoIbge">{{resultId?.codigoIbge}}</span>
+         </div>
+         <div class="col-md-2 text-right">
+            <label for="descricaoTipoUnidade">Descrição do Tipo de Unidade</label>
+         </div>
+         <div class="col-md-4">
+            <span id="descricaoTipoUnidade">{{resultId?.descricaoTipoUnidade}}</span>
+         </div>
+      </div>
+      <div class="row mb-3">
+         <div class="col-md-2 text-right">
+            <label for="tipoGestao">Tipo de Gestão</label>
+         </div>
+         <div class="col-md-4">
+            <span id="tipoGestao">{{resultId?.tipoGestao | enumPipe:tipoEnumMsg }}</span>
+         </div>
+         <div class="col-md-2 text-right">
+            <label for="endereco">Endereço</label>
+         </div>
+         <div class="col-md-4">
+            <span id="endereco">{{resultId?.nomeLogradouro}} {{resultId?.nomeEndereco}}, {{resultId?.nomeBairro}} - {{resultId?.cep}}</span>
+         </div>
+      </div>
+      <div class="row mb-3">
+         <div class="col-md-2 text-right">
+            <label for="uf">Unidade Federativa</label>
+         </div>
+         <div class="col-md-4">
+            <span id="uf">{{resultId?.uf | enumPipe: unidadeFederativaEnumMsg}}</span>
+         </div>
+         <div class="col-md-2 text-right">
+            <label for="municipio">Município</label>
+         </div>
+         <div class="col-md-4">
+            <span id="municipio">{{resultId?.municipio}}</span>
+         </div>
+      </div>
+      <div class="row mb-3">
+         <div class="col-md-2 text-right">
+            <label for="numeroTelefone">Telefone de Contato</label>
+         </div>
+         <div class="col-md-4">
+            <span id="numeroTelefone">{{resultId?.numeroTelefone}}</span>
+         </div>
+      </div>
+
+      <div class="form-group row ">
+          <div class="col-sm-10 offset-sm-2">
+            <button title="Voltar" class="btn btn-secondary float-left" [routerLink]="this._pathBack">Voltar</button>
+          </div>
+      </div>
+   </form>
+</div>
+
+
