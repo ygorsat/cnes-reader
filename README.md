@@ -4,7 +4,7 @@ Leitor de CNES a partir de URL configurável com H2 Memory Database
 ## Backend
 ```
 -- Desenvolvido com Spring Framework (Maven, Spring Boot, JPA, Validation API, Sprint Data - Criteria API + CRUD Repository, Http Client, Model Mapper)
---- Executar "Run As" ou "Debug As" a classe CnesReaderApplication.java
+--- Executar "Run As" ou "Debug As" Java Application a classe CnesReaderApplication.java
 --- A aplicação faz o download do arquivo .CSV com as informações do CNES a partir de URL configurável, as insere em um H2 Memory Database utilizando JPA (persistência em lote).
 ---- O download é feito via Listener no "On Ready" da aplicação. Sendo assim, não é necessário executar nenhuma ação além de inicializar a aplicação para o download e a persistência em banco ocorrerem
 
