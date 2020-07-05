@@ -15,6 +15,7 @@ Leitor de CNES a partir de URL configurável com H2 Memory Database
 ---- /cnes/all (GET) - Recupera todos os CNES sem filtros;
 
 *O backend está totalmente documentado.
+*Aguardar finalização da persistência no Database para utilizar APIs (console da aplicação).
 
 - Frontend
 -- Desenvolvido com Angular IO (Versão 7), Typescript, Bootstrap 4 e NPM
