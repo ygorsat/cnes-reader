@@ -181,7 +181,9 @@ public class CnesServiceImpl implements CnesService {
 
 	@Override
 	public MessageApiDTO createCnes(ViewCnesDTO dto) {		
-		return ResponseUtil.mountResponse(cnesDAO.save(convert(dto)), ENTITY_POST);
+		Cnes cnes = convert(dto);
+		cnes.setId(null);
+		return ResponseUtil.mountResponse(cnesDAO.save(cnes), ENTITY_POST);
 	}
 
 	@Override
