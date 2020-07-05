@@ -34,7 +34,7 @@ public enum UnidadeFederativaEnum {
 	SC ("Santa Catarina"),
 	SP ("São Paulo"),
 	SE ("Sergipe"),
-	TO ("Tocatins");
+	TO ("Tocantins");
 
 	private String name;
 

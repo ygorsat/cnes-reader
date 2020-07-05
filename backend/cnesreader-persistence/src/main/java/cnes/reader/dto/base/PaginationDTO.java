@@ -11,31 +11,31 @@ public class PaginationDTO<T extends Serializable> implements Serializable {
 
 	private static final long serialVersionUID = 1901750565792336182L;
 	
-	private Long totalRegistros;
-    private List<T> itens;
+	private Long totalNumber;
+    private List<T> items;
 
     public PaginationDTO() {
         super();
     }
 
-    public PaginationDTO(Long totalRegistros, List<T> itens) {
-        this.totalRegistros = totalRegistros;
-        this.itens = itens;
+    public PaginationDTO(Long totalNumber, List<T> items) {
+        this.totalNumber = totalNumber;
+        this.items = items;
     }
 
-    public Long getTotalRegistros() {
-        return totalRegistros;
-    }
+	public Long getTotalNumber() {
+		return totalNumber;
+	}
 
-    public void setTotalRegistros(Long totalRegistros) {
-        this.totalRegistros = totalRegistros;
-    }
+	public void setTotalNumber(Long totalNumber) {
+		this.totalNumber = totalNumber;
+	}
 
-    public List<T> getItens() {
-        return itens;
-    }
+	public List<T> getItems() {
+		return items;
+	}
 
-    public void setItens(List<T> itens) {
-        this.itens = itens;
-    }
+	public void setItems(List<T> items) {
+		this.items = items;
+	}
 }

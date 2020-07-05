@@ -2,7 +2,6 @@ package cnes.reader.service.impl;
 
 import static cnes.reader.service.constants.ServiceConstants.ENTITY_POST;
 import static cnes.reader.service.constants.ServiceConstants.ENTITY_PUT;
-import static cnes.reader.service.constants.ServiceConstants.LIMIT_BATCH;
 import static cnes.reader.service.constants.ServiceConstants.SEPARATOR;
 
 import java.io.BufferedReader;
@@ -62,6 +61,9 @@ public class CnesServiceImpl implements CnesService {
 	@Value("${sample.cnes.csv.limit}")
 	private Integer sampleCnesCsv;
 	
+	@Value("${spring.jpa.properties.hibernate.jdbc.batch_size}")
+	private Integer batchLimit;
+	
 	@Autowired
 	private CnesDAO cnesDAO;
 	
@@ -114,7 +116,7 @@ public class CnesServiceImpl implements CnesService {
 	}
 	
 	private void verifyBatchLimit(Set<Cnes> cnesModel) {
-		if(cnesModel.size() >= LIMIT_BATCH) {
+		if(cnesModel.size() >= batchLimit) {
 			cnesDAO.save(cnesModel);
 			cnesModel.clear();
 		}

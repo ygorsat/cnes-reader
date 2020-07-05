@@ -36,7 +36,6 @@
 			<artifactId>springfox-swagger-ui</artifactId>
 			<version>${swagger.version}</version>
 		</dependency>
-
 	</dependencies>
 
 	<build>
@@ -45,7 +44,7 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
-	
+
 		</plugins>
 	</build>
 </project>

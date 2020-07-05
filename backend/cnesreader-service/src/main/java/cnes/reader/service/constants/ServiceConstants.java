@@ -8,8 +8,7 @@ public final class ServiceConstants {
 
 	private ServiceConstants() {
 
-	}
-	public static final Integer LIMIT_BATCH = 10000;	
+	}	
 	public static final String ENTITY_POST = "Estabelecimento gravado com sucesso.";
 	public static final String ENTITY_PUT = "Estabelecimento atualizado com sucesso.";
 	public static final String SEPARATOR = ",";

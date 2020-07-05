@@ -10,8 +10,6 @@ import springfox.documentation.builders.RequestHandlerSelectors;
 import springfox.documentation.service.ApiInfo;
 import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
-import springfox.documentation.swagger.web.SecurityConfiguration;
-import springfox.documentation.swagger.web.SecurityConfigurationBuilder;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 /**
@@ -52,12 +50,6 @@ public class SwaggerConfig extends WebMvcConfigurationSupport {
 		.addResourceLocations("classpath:/META-INF/resources/webjars/");
 	}
 
-	@Bean
-	public SecurityConfiguration security() {
-		return SecurityConfigurationBuilder.builder().scopeSeparator(",")
-				.additionalQueryStringParams(null)
-				.useBasicAuthenticationWithAccessCodeGrant(false).build();
-	}
 
 
 
